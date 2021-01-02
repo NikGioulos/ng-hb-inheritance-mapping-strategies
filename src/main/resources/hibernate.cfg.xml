@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.00//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <property name="connection.driver_class">com.ibm.as400.access.AS400JDBCDriver</property>
+        <property name="connection.url">jdbc:as400://host/defaultSchema;naming=system;errors=full</property>
+        <property name="connection.username">user</property>
+        <property name="connection.password">password</property>
+        <property name="connection.pool_size">3</property>
+
+        <property name="dialect">org.hibernate.dialect.DB2400Dialect</property>
+
+        <!-- Print SQL statements -->
+        <property name="show_sql">true</property>
+
+        <!-- Auto create tables: create for DEV, validate for PROD-->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!--Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+
+    </session-factory>
+
+</hibernate-configuration>
